@@ -1,0 +1,36 @@
+
+1.Quanto fa 25*4?:
+1)100OK
+2)-2
+3)50
+4)0
+
+2.Quanto fa (30/5)*10?:
+1)35
+2)-54
+3)60OK
+4)70
+
+3.Quanti secondi ci sono in un anno?:
+1)31536000OK
+2)-1
+3)34104300
+4)10214329
+
+4.Quanti esami si svolgono nella laurea Triennale di Informatica unina?:
+1)52
+2)22OK
+3)15
+4)42
+
+5.Che voto prenderà Capasso Ivan a quest'esame?:
+1)18
+2)30
+3)25
+4)-1OK
+
+6.Che voto prenderà Doarme Cristofor a quest'esame?:
+1)18OK
+2)30
+3)25
+4)-1OK

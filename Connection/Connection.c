@@ -7,7 +7,7 @@ int setSocket(int *sd){
 
 void setServAdress(struct sockaddr_in *srv_addr){
     *srv_addr = (struct sockaddr_in){  
-        .sin_addr.s_addr = inet_addr("93.144.54.26"), //indirizzo server
+        .sin_addr.s_addr = inet_addr(IPANDRESS), //indirizzo server
 	    .sin_family = AF_INET, //tipologia famiglia
 	    .sin_port = htons(20000) //porta del server
     };

@@ -123,15 +123,19 @@ void setComunication(char action){
         int idQ;
 
         do{
-            if (startConnection(&start))  
-                Azione(&action,&idQ,&temp,&flag);
+            if(action=='a'){
+                getAnswer();
+            }
+            if (startConnection(&start)) {
+                Azione(&action, &idQ, &temp, &flag);
+            }
             else {
                 printf("Connessione fallita\n");
                 action = EXIT;
             } 
             closeConnection();
         }while(action != EXIT);
-        exit(1);
+        sleep(5);
     }   
 }
 

@@ -23,14 +23,3 @@
 3)15
 4)42
 
-5.Che voto prenderà Capasso Ivan a quest'esame?:
-1)18
-2)30
-3)25
-4)-1OK
-
-6.Che voto prenderà Doarme Cristofor a quest'esame?:
-1)18OK
-2)30
-3)25
-4)-1OK

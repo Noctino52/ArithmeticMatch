@@ -752,6 +752,7 @@ void writeAnswer(int client_sd){
         }
         else perror("erroree");
         close(fd);
+        fprintf(stdout,"Risposta corretta!");
     }
     free(argv1);
     free(argv2);
@@ -814,16 +815,15 @@ void gestisciConnessione(int sd,int num_domande){
     char* tmp=malloc(sizeof(char)*2);
 
     while(1){
-        //Verifica di fine partita
-        if(fin_par==num_giocatori && num_giocatori!=0 && tmp[0]=='c'){
-        fprintf(stdout,"\n Partita finita! \n");
-        fflush(stdout);
-        break;
-        }
         //In attesa di una richiesta da parte di un client
         if((client_sd=accept(sd,(struct sockaddr* )&client_addr,(socklen_t*)&client_len))<0) {
             fprintf(stderr,"Si e' verificato un'errore nella creazione della socket, riprova tra qualche secondo: %s \n ",strerror(errno));
             exit(EXIT_FAILURE);
+        }
+        //Verifica di fine partita
+        if(fin_par==num_giocatori && num_giocatori!=0){
+            fprintf(stdout,"\n Partita finita!  \n");
+            fflush(stdout);
         }
         int pid;
         int fd[2];
@@ -853,8 +853,7 @@ void gestisciConnessione(int sd,int num_domande){
             }
             else if (strcmp(azione,"a")==0)
             {
-                if(domanda_attuale>=num_domande)write(client_sd,"0",2);
-                else write(client_sd,"1",2);
+                write(client_sd,"1",2);
                 writeAnswer(client_sd);
             }
             else if(strcmp(azione,"c")==0)
@@ -879,7 +878,7 @@ void gestisciConnessione(int sd,int num_domande){
             }
             close(client_sd);
             close(fd[1]);
-            shutdown(client_sd,SHUT_RDWR);
+            free(azione);
             exit(EXIT_SUCCESS);
         }
         close(fd[1]);
@@ -912,7 +911,6 @@ int main(void) {
     fprintf(stdout,"Server avviato con successo, in attesa di un client...");
     fflush(stdout);
     gestisciConnessione(sd,num_domande);
-
 
 }
 

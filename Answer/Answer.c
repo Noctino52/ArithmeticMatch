@@ -139,15 +139,14 @@ void sendAnswer(){
     write(sd,answer,2); //rispostaData
     write(sd,timeTaken,3); //tempo impiegato
     write(sd,idQuestion,5); //id Question
-    printf("\nRisposta Inviata : %s  (tempo: %s sec)\n",answer,timeTaken); 
-     
-    waitQuestion(temp,WAIT_TIME,0); 
+    printf("\nRisposta Inviata : %s  (tempo: %s sec)\n",answer,timeTaken);
+
+    waitQuestion(temp,WAIT_TIME,0);
+    fflush(stdout);
 }
 
 void doAnswer(int IdQ,int* tempo){
     idQ = IdQ;
-    getAnswer();
-
     if(temp >= WAIT_TIME){
         strcpy(answer,"-");
     }
